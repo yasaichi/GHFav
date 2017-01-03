@@ -6,7 +6,8 @@
     "lint": "eslint .",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "typecheck": "flow; test $? -eq 0 -o $? -eq 2"
+    "typecheck": "flow; test $? -eq 0 -o $? -eq 2",
+    "storybook": "storybook start -p 7007"
   },
   "dependencies": {
     "immutability-helper": "^2.1.0",
@@ -20,6 +21,7 @@
     "reselect": "^2.5.4"
   },
   "devDependencies": {
+    "@kadira/react-native-storybook": "^2.0.0",
     "babel-eslint": "^7.1.1",
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
