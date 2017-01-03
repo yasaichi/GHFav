@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function GHFav(_props) {
+export default function GHFav(_props: Object) {
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>
