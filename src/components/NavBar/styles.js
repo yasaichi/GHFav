@@ -15,5 +15,6 @@ export default StyleSheet.create({
   title: {
     color: '#f0f6fc',
     fontWeight: 'bold',
+    width: 240,
   },
 });
