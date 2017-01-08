@@ -1,19 +1,35 @@
 // @flow
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { ListView, View } from 'react-native';
 
+import Event from './Event';
 import styles from './styles';
 
+const ds = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1.id !== r2.id,
+});
+
 type Props = {
-  title: string
+  fetchStarringEvents: Function,
+  starringEvents: Array<Object>,
 };
 
-export default function Home(props: Props) {
-  return (
-    <View style={styles.container}>
-      <Text>
-        The current scene is titled {props.title}.
-      </Text>
-    </View>
-  );
+export default class Home extends Component {
+  props: Props;
+
+  componentDidMount() {
+    this.props.fetchStarringEvents();
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <ListView
+          dataSource={ds.cloneWithRows(this.props.starringEvents)}
+          enableEmptySections
+          renderRow={(event) => <Event {...event} />}
+        />
+      </View>
+    );
+  }
 }
