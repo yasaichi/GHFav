@@ -1,5 +1,4 @@
 // @flow
-import update from 'immutability-helper';
 import { ActionConst } from 'react-native-router-flux';
 
 type Action = {
@@ -18,7 +17,7 @@ const initialState = {
 export default function routes(state: State = initialState, action: Action) {
   switch (action.type) {
     case ActionConst.FOCUS:
-      return update(state, { $merge: { scene: action.scene } });
+      return { ...state, scene: action.scene };
     default:
       return state;
   }
