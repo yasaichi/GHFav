@@ -1,10 +1,12 @@
 // @flow
 import { combineReducers } from 'redux';
 
+import currentUser from './currentUser';
+import entities from './entities';
 import routes from './routes';
-import receivedEvents from './receivedEvents';
 
 export default combineReducers({
-  receivedEvents,
+  currentUser,
+  entities,
   routes,
 });

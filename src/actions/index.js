@@ -1,11 +1,17 @@
 // @flow
 import type { Dispatch } from 'redux';
+import { camelizeKeys } from 'humps';
+import { normalize } from 'normalizr';
+
+import * as schema from '../schema';
 
 export const FETCH_RECEIVED_EVENTS_SUCCESS = 'FETCH_RECEIVED_EVENTS_SUCCESS';
 
 export function fetchReceivedEvents() {
-  return (dispatch: Dispatch) => {
-    fetch('https://api.github.com/users/yasaichi/received_events', {
+  return (dispatch: Dispatch, getState) => {
+    const { currentUser: { login } } = getState();
+
+    fetch(`https://api.github.com/users/${login}/received_events`, {
       headers: {
         Accept: 'application/vnd.github.v3+json',
       },
@@ -14,7 +20,7 @@ export function fetchReceivedEvents() {
     .then((responseJson) => {
       dispatch({
         type: FETCH_RECEIVED_EVENTS_SUCCESS,
-        payload: responseJson,
+        payload: normalize(camelizeKeys(responseJson), [schema.event]),
       });
     })
     .catch((error) => {
