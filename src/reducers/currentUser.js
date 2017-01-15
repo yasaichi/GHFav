@@ -1,5 +1,6 @@
 // @flow
 import type { FluxStandardAction } from 'flux-standard-action';
+import union from 'lodash.union';
 
 import { FETCH_RECEIVED_EVENTS_SUCCESS } from '../actions';
 
@@ -11,12 +12,12 @@ type Action = FluxStandardAction<string, Payload, any>;
 
 type State = {
   login: string,
-  receivedEvents: Set<Number>,
+  receivedEvents: Array<Number>,
 };
 
 const initialState: State = {
   login: 'yasaichi',
-  receivedEvents: new Set(),
+  receivedEvents: [],
 };
 
 export default function currentUser(state: State = initialState, action: Action) {
@@ -25,7 +26,7 @@ export default function currentUser(state: State = initialState, action: Action)
       if (action.payload && action.payload.result) {
         return {
           ...state,
-          receivedEvents: new Set([...state.receivedEvents, ...action.payload.result]),
+          receivedEvents: union(state.receivedEvents, action.payload.result),
         };
       }
 
