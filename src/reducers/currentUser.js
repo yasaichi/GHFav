@@ -24,10 +24,11 @@ export default function currentUser(state: State = initialState, action: Action)
   switch (action.type) {
     case FETCH_RECEIVED_EVENTS_SUCCESS: {
       if (action.payload && action.payload.result) {
-        return {
-          ...state,
-          receivedEvents: union(state.receivedEvents, action.payload.result),
-        };
+        const receivedEvents =
+          union(state.receivedEvents, action.payload.result.map((id) => parseInt(id, 10)))
+          .sort((id1, id2) => id2 - id1);
+
+        return { ...state, receivedEvents };
       }
 
       return state;
