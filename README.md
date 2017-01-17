@@ -1,6 +1,6 @@
 # GHFav
 
-GHFav allows you to see projects starred by following users on GitHub in the form of timeline.
+GHFav makes it easier to see the repositories starred by people you follow on GitHub.
 
 ## Requirements
 
