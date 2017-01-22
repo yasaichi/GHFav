@@ -1,14 +1,19 @@
 // @flow
 import React from 'react';
+import { apiMiddlewareCreator } from '@yasaichi/redux-api-middleware';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import createLogger from 'redux-logger';
-import thunk from 'redux-thunk';
 
+import { normalizrMiddleware } from '../../middlewares';
 import rootReducer from '../../reducers';
 import Router from './Router';
 
-let middleware = [thunk];
+let middleware = [
+  apiMiddlewareCreator(fetch),
+  normalizrMiddleware,
+];
+
 if (__DEV__) {
   const logger = createLogger();
   middleware = [...middleware, logger];

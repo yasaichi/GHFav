@@ -1,30 +1,30 @@
 // @flow
-import type { Dispatch } from 'redux';
-import { camelizeKeys } from 'humps';
-import { normalize } from 'normalizr';
+import { CALL_API } from '@yasaichi/redux-api-middleware';
 
 import * as schema from '../schema';
 
+export const FETCH_RECEIVED_EVENTS_REQUEST = 'FETCH_RECEIVED_EVENTS_REQUEST';
 export const FETCH_RECEIVED_EVENTS_SUCCESS = 'FETCH_RECEIVED_EVENTS_SUCCESS';
+export const FETCH_RECEIVED_EVENTS_FAILURE = 'FETCH_RECEIVED_EVENTS_FAILURE';
 
 export function fetchReceivedEvents() {
-  return (dispatch: Dispatch, getState) => {
-    const { currentUser: { login } } = getState();
-
-    fetch(`https://api.github.com/users/${login}/received_events`, {
+  return {
+    [CALL_API]: {
+      endpoint: ({ currentUser: { login } }) => `https://api.github.com/users/${login}/received_events`,
+      method: 'GET',
       headers: {
         Accept: 'application/vnd.github.v3+json',
       },
-    })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      dispatch({
-        type: FETCH_RECEIVED_EVENTS_SUCCESS,
-        payload: normalize(camelizeKeys(responseJson), [schema.event]),
-      });
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+      types: [
+        FETCH_RECEIVED_EVENTS_REQUEST,
+        {
+          type: FETCH_RECEIVED_EVENTS_SUCCESS,
+          meta: {
+            schema: [schema.event],
+          },
+        },
+        FETCH_RECEIVED_EVENTS_FAILURE,
+      ],
+    },
   };
 }
