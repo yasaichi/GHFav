@@ -11,11 +11,12 @@ export default createSelector(
   (state) => state.currentUser.receivedEvents,
   (state) => state.currentUser.login,
   (state) => state.entities,
-  (receivedEvents, username, entities) => {
+  (state) => state.ui.home,
+  (receivedEvents, username, entities, ui) => {
     const starringEvents = denormalize({ events: receivedEvents }, entitiesSchema, entities).events
       .filter((event) => event.type === WATCH_EVENT)
       .filter((event) => event.repo.name.split('/')[0] !== username);
 
-    return { starringEvents };
+    return { starringEvents, ...ui };
   },
 );

@@ -10,6 +10,7 @@
     "storybook": "storybook start -p 7007"
   },
   "dependencies": {
+    "@yasaichi/redux-api-middleware": "^2.0.1",
     "flux-standard-action": "^1.0.0",
     "humps": "^2.0.0",
     "immutability-helper": "^2.1.0",

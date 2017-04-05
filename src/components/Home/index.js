@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import { ListView, View } from 'react-native';
+import { ActivityIndicator, ListView, View } from 'react-native';
 
+import CenteredView from '../CenteredView';
 import Event from './Event';
 import styles from './styles';
 
@@ -11,6 +12,7 @@ const ds = new ListView.DataSource({
 
 type Props = {
   fetchStarringEvents: Function,
+  isLoading: boolean,
   starringEvents: Array<Object>,
 };
 
@@ -24,11 +26,16 @@ export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ListView
-          dataSource={ds.cloneWithRows(this.props.starringEvents)}
-          enableEmptySections
-          renderRow={(event) => <Event {...event} />}
-        />
+        {this.props.isLoading ?
+          <CenteredView>
+            <ActivityIndicator />
+          </CenteredView> :
+          <ListView
+            dataSource={ds.cloneWithRows(this.props.starringEvents)}
+            enableEmptySections
+            renderRow={(event) => <Event {...event} />}
+          />
+        }
       </View>
     );
   }
