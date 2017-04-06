@@ -1,20 +1,20 @@
 // @flow
 import React from 'react';
 import moment from 'moment';
-import { Actions } from 'react-native-router-flux';
 import { Image, Text, View } from 'react-native';
+import { Link } from 'react-router-native';
 
 import styles from './styles';
 
 type Props = {
   actor: {
-    avatarUrl: String,
-    displayLogin: String,
+    avatarUrl: string,
+    displayLogin: string,
   },
   repo: {
-    name: String
+    name: string
   },
-  createdAt: String,
+  createdAt: string,
 };
 
 export default function Event(props: Props) {
@@ -34,12 +34,16 @@ export default function Event(props: Props) {
           </Text>
         </View>
         <View style={styles.main}>
-          <Text
-            style={styles.repoName}
-            onPress={() => Actions.repositoryDetail({ title: props.repo.name, url: `https://github.com/${props.repo.name}` })}
+          <Link
+            to={{
+              pathname: `/repos/${props.repo.name}`,
+              state: { title: props.repo.name },
+            }}
           >
-            {props.repo.name}
-          </Text>
+            <Text style={styles.repoName}>
+              {props.repo.name}
+            </Text>
+          </Link>
         </View>
       </View>
     </View>

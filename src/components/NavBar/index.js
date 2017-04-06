@@ -1,22 +1,37 @@
 // @flow
 import React from 'react';
-import update from 'immutability-helper';
-import { NavBar as DefaultNavBar } from 'react-native-router-flux';
+import NavigationBar from 'react-native-navbar';
+import { withRouter } from 'react-router';
 
+import BackButton from './BackButton';
 import styles from './styles';
 
 type Props = {
-  navigationState: Object,
+  location: {
+    state?: {
+      title: string,
+    }
+  },
+  history: {
+    canGo: (number) => boolean,
+    goBack: () => void,
+  }
 };
 
-export default function NavBar(props: Props) {
-  const newProps = update(props, {
-    navigationState: {
-      barButtonIconStyle: { $set: styles.barButtonIcon },
-      navigationBarStyle: { $set: styles.navigationBar },
-      titleStyle: { $set: styles.title },
-    },
-  });
+function NavBar(props: Props) {
+  const leftButton = props.history.canGo(-1) ?
+    <BackButton onPress={props.history.goBack} /> : null;
 
-  return <DefaultNavBar {...newProps} />;
+  const title = props.location.state ? props.location.state.title : '';
+
+  return (
+    <NavigationBar
+      containerStyle={styles.container}
+      leftButton={leftButton}
+      statusBar={{ style: 'light-content' }}
+      title={{ title, style: styles.title }}
+    />
+  );
 }
+
+export default withRouter(NavBar);
