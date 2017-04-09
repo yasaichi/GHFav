@@ -1,0 +1,3 @@
+{
+  "/users/:username/received_events": "/received_events"
+}

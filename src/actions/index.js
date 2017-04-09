@@ -7,10 +7,12 @@ export const FETCH_RECEIVED_EVENTS_REQUEST = 'FETCH_RECEIVED_EVENTS_REQUEST';
 export const FETCH_RECEIVED_EVENTS_SUCCESS = 'FETCH_RECEIVED_EVENTS_SUCCESS';
 export const FETCH_RECEIVED_EVENTS_FAILURE = 'FETCH_RECEIVED_EVENTS_FAILURE';
 
+const GITHUB_API_ORIGIN = __DEV__ ? 'http://localhost:3000' : 'https://api.github.com';
+
 export function fetchReceivedEvents() {
   return {
     [CALL_API]: {
-      endpoint: ({ currentUser: { login } }) => `https://api.github.com/users/${login}/received_events`,
+      endpoint: ({ currentUser: { login } }) => `${GITHUB_API_ORIGIN}/users/${login}/received_events`,
       method: 'GET',
       headers: {
         Accept: 'application/vnd.github.v3+json',

@@ -16,7 +16,7 @@ $ yarn install
 
 ## Development
 ### For iOS
-First, start the server:
+First, start the servers:
 
 ```shell
 $ yarn start
@@ -37,7 +37,7 @@ So when you want to fix or improve only the components, it would be usuful.
 First, start the server:
 
 ```shell
-$ yarn run storybook
+$ yarn storybook
 ```
 
 Then, start the application:
@@ -53,7 +53,7 @@ Currently we use [ESLint](http://eslint.org).
 When you want to check problems in your code, run command:
 
 ```shell
-$ yarn run lint
+$ yarn lint
 ```
 
 ## Type annotation
@@ -61,7 +61,7 @@ Currently we use [flow](https://flowtype.org).
 When you want to execute static type checking, run command:
 
 ```shell
-$ yarn run typecheck
+$ yarn typecheck
 ```
 
 ## Contributing

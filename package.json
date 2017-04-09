@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "npm-run-all --parallel start:*",
+    "start:json-server": "json-server json-server/db.json -c json-server/config.json",
+    "start:packager": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "typecheck": "flow; test $? -eq 0 -o $? -eq 2",
     "storybook": "storybook start -p 7007"
@@ -39,6 +41,8 @@
     "eslint-plugin-react": "^6.8.0",
     "flow-bin": "^0.37.0",
     "jest": "18.1.0",
+    "json-server": "^0.9.6",
+    "npm-run-all": "^4.0.2",
     "react-test-renderer": "15.4.1"
   },
   "jest": {
