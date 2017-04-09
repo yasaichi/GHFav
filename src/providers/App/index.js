@@ -3,7 +3,7 @@ import React from 'react';
 import { apiMiddlewareCreator } from '@yasaichi/redux-api-middleware';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import createLogger from 'redux-logger';
+import logger from 'redux-logger';
 
 import { normalizrMiddleware } from '../../middlewares';
 import rootReducer from '../../reducers';
@@ -15,7 +15,6 @@ let middleware = [
 ];
 
 if (__DEV__) {
-  const logger = createLogger();
   middleware = [...middleware, logger];
 }
 
