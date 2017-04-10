@@ -1,5 +1,5 @@
-// flow-typed signature: 1156483823f310658a092fc2b7a5f39c
-// flow-typed version: f68e7dabcd/flux-standard-action_v1.x.x/flow_>=v0.28.x
+// flow-typed signature: 861ba4bee501eb33b34f13a0a690d407
+// flow-typed version: 2bbf4ce564/flux-standard-action_v1.x.x/flow_>=v0.28.x_<=v0.37.x
 
 declare module 'flux-standard-action' {
   declare type FluxStandardAction<ActionType: string | Symbol, Payload: any, Meta: any> = {
