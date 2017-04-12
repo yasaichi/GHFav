@@ -14,6 +14,7 @@
   "dependencies": {
     "@yasaichi/redux-api-middleware": "^2.0.1",
     "flux-standard-action": "^1.2.0",
+    "history": "^4.6.1",
     "humps": "^2.0.0",
     "immutability-helper": "^2.1.2",
     "lodash.union": "^4.6.0",
@@ -21,8 +22,11 @@
     "normalizr": "^3.2.2",
     "react": "15.4.1",
     "react-native": "0.41.2",
-    "react-native-router-flux": "^3.38.0",
+    "react-native-navbar": "^1.7.1",
     "react-redux": "^5.0.3",
+    "react-router": "^4.1.0",
+    "react-router-native": "^4.1.0",
+    "react-router-redux": "^5.0.0-alpha.5",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.1",
     "reselect": "^3.0.0"

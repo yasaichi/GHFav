@@ -20,7 +20,10 @@ export default class Home extends Component {
   props: Props;
 
   componentDidMount() {
-    this.props.fetchStarringEvents();
+    // TODO: Add a flag or something to avoid fetching data every time
+    if (this.props.starringEvents.length === 0) {
+      this.props.fetchStarringEvents();
+    }
   }
 
   render() {
