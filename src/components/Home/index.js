@@ -1,20 +1,18 @@
 // @flow
 import React, { Component } from 'react';
-import { ActivityIndicator, ListView, View } from 'react-native';
+import { ActivityIndicator, FlatList, View } from 'react-native';
 
 import CenteredView from '../CenteredView';
 import Event from './Event';
 import styles from './styles';
-
-const ds = new ListView.DataSource({
-  rowHasChanged: (r1, r2) => r1.id !== r2.id,
-});
 
 type Props = {
   fetchStarringEvents: Function,
   isLoading: boolean,
   starringEvents: Array<Object>,
 };
+
+const keyExtractor = (item, _index) => item.id;
 
 export default class Home extends Component {
   props: Props;
@@ -30,10 +28,10 @@ export default class Home extends Component {
           <CenteredView>
             <ActivityIndicator />
           </CenteredView> :
-          <ListView
-            dataSource={ds.cloneWithRows(this.props.starringEvents)}
-            enableEmptySections
-            renderRow={(event) => <Event {...event} />}
+          <FlatList
+            data={this.props.starringEvents}
+            keyExtractor={keyExtractor}
+            renderItem={({ item }) => <Event {...item} />}
           />
         }
       </View>
