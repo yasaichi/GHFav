@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+
 import { ActivityIndicator, FlatList, View } from 'react-native';
 
 import CenteredView from '../CenteredView';
