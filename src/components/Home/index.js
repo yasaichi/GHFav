@@ -9,6 +9,9 @@ import styles from './styles';
 type Props = {
   fetchStarringEvents: Function,
   isLoading: boolean,
+  navigation: {
+    navigate: (string, any) => void
+  },
   starringEvents: Array<Object>,
 };
 
@@ -16,6 +19,10 @@ const keyExtractor = (item, _index) => item.id;
 
 export default class Home extends Component {
   props: Props;
+
+  static navigationOptions = {
+    title: 'GHFav',
+  }
 
   componentDidMount() {
     this.props.fetchStarringEvents();
@@ -31,10 +38,21 @@ export default class Home extends Component {
           <FlatList
             data={this.props.starringEvents}
             keyExtractor={keyExtractor}
-            renderItem={({ item }) => <Event {...item} />}
+            renderItem={this._renderItem}
           />
         }
       </View>
+    );
+  }
+
+  _renderItem = ({ item }) => {
+    const { navigate } = this.props.navigation;
+
+    return (
+      <Event
+        {...item}
+        onPress={() => navigate('Repository', { id: item.repo.name })}
+      />
     );
   }
 }
