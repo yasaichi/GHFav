@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import moment from 'moment';
-import { Actions } from 'react-native-router-flux';
 import { Image, Text, View } from 'react-native';
 
 import styles from './styles';
@@ -15,6 +14,7 @@ type Props = {
     name: String
   },
   createdAt: String,
+  onPress: () => void,
 };
 
 export default function Event(props: Props) {
@@ -34,10 +34,7 @@ export default function Event(props: Props) {
           </Text>
         </View>
         <View style={styles.main}>
-          <Text
-            style={styles.repoName}
-            onPress={() => Actions.repositoryDetail({ title: props.repo.name, url: `https://github.com/${props.repo.name}` })}
-          >
+          <Text onPress={props.onPress} style={styles.repoName}>
             {props.repo.name}
           </Text>
         </View>
