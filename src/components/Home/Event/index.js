@@ -7,13 +7,13 @@ import styles from './styles';
 
 type Props = {
   actor: {
-    avatarUrl: String,
-    displayLogin: String,
+    avatarUrl: string,
+    displayLogin: string,
   },
   repo: {
-    name: String
+    name: string
   },
-  createdAt: String,
+  createdAt: string,
   onPress: () => void,
 };
 
