@@ -1,13 +1,36 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    alignItems: 'center',
+  appIcon: {
     flex: 1,
     justifyContent: 'center',
   },
-  text: {
-    color: '#24292e',
-    fontSize: 24,
+  container: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  createAccount: {
+    color: '#0366d6',
+    fontSize: 16,
+  },
+  description: {
+    color: '#586069',
+    fontSize: 18,
+    textAlign: 'center',
+  },
+  footer: {
+    // alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  header: {
+    alignItems: 'center',
+    flex: 3,
+    width: 300,
+  },
+  main: {
+    flex: 2,
+    justifyContent: 'flex-end',
+    width: 300,
   },
 });
