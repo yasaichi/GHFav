@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 import { ActivityIndicator, FlatList, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import CenteredView from '../CenteredView';
 import Event from './Event';
@@ -23,6 +24,9 @@ export default class Home extends Component {
 
   static navigationOptions = {
     title: 'GHFav',
+    tabBarIcon: ({ tintColor }) => (
+      <Icon color={tintColor} name="home" size={30} />
+    ),
   }
 
   componentDidMount() {
