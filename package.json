@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@yasaichi/redux-api-middleware": "^2.0.1",
+    "fbjs": "^0.8.12",
     "flux-standard-action": "^1.2.0",
     "humps": "^2.0.0",
     "immutability-helper": "^2.1.2",
