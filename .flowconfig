@@ -14,14 +14,6 @@
 .*/Libraries/react-native/React.js
 .*/Libraries/react-native/ReactNative.js
 
-
-; [WORKAROUND] Ignore errors caused by react-native-router-flux
-; ref.
-; * https://github.com/aksonov/react-native-router-flux/issues/892
-; * https://github.com/aksonov/react-native-router-flux/issues/1465
-.*/node_modules/react-native-experimental-navigation/.*
-.*/node_modules/react-static-container/.*
-
 [include]
 
 [libs]
@@ -50,6 +42,15 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 
 unsafe.enable_getters_and_setters=true
+
+
+; [WORKAROUND] Ignore errors caused by platform-specific react-native files
+; ref. https://github.com/facebook/flow/issues/945
+module.file_ext=.ios.js
+module.file_ext=.android.js
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
 
 [version]
 ^0.40.0
