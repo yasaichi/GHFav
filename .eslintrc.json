@@ -13,6 +13,17 @@
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".android.js",
+          ".ios.js"
+        ]
+      }
+    }
+  },
   "globals": {
     "__DEV__": true,
     "fetch": true

@@ -1,21 +1,23 @@
 // @flow
 import { StackNavigator } from 'react-navigation';
 
-import Home from '../containers/Home';
+import MainNavigator from './MainNavigator';
 import Repository from '../containers/Repository';
+import Welcome from '../components/Welcome';
 import styles from './styles';
 
 const routeConfigs = {
-  Home: { screen: Home },
+  MainNavigator: { screen: MainNavigator },
+  Welcome: { screen: Welcome },
   Repository: { screen: Repository },
 };
 
 const stackNavigatorConfig = {
-  initialRouteName: 'Home',
+  initialRouteName: 'Welcome',
   cardStyle: styles.card,
   navigationOptions: {
     headerBackTitle: null,
-    headerTintColor: 'rgba(255,255,255,0.75)',
+    headerTintColor: '#586169',
     headerTitleStyle: styles.headerTitle,
     headerStyle: styles.header,
   },

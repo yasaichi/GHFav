@@ -6,9 +6,10 @@ export default StyleSheet.create({
   avatar: {
     width: 44,
     height: 44,
-    borderColor: '#eee',
-    borderRadius: 3,
+    borderColor: '#eaecef',
+    borderRadius: 22,
     marginRight: margin,
+    backgroundColor: 'white',
     borderWidth: 1,
   },
   body: {
@@ -17,13 +18,13 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   container: {
-    borderBottomColor: '#ddd',
+    borderBottomColor: '#eaecef',
     borderBottomWidth: 1,
     flexDirection: 'row',
     padding: margin,
   },
   createdAt: {
-    color: '#888',
+    color: '#6a737d',
     fontSize: 14,
   },
   header: {
@@ -33,12 +34,12 @@ export default StyleSheet.create({
   main: {
   },
   repoName: {
-    color: '#4078c0',
+    color: '#0366d6',
     fontSize: 16,
   },
   userName: {
-    color: '#333',
+    color: '#24292e',
     fontSize: 15,
-    fontWeight: 'bold',
+    fontWeight: '500',
   },
 });

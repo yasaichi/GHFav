@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@yasaichi/redux-api-middleware": "^2.0.1",
+    "fbjs": "^0.8.12",
     "flux-standard-action": "^1.2.0",
     "humps": "^2.0.0",
     "immutability-helper": "^2.1.2",
@@ -21,6 +22,7 @@
     "normalizr": "^3.2.2",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.43.4",
+    "react-native-vector-icons": "^4.1.1",
     "react-navigation": "^1.0.0-beta.9",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
