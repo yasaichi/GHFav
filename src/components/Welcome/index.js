@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Linking, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Button from '../Button';
+import Button from '../shared/Button';
 import styles from './styles';
 
 type Props = {

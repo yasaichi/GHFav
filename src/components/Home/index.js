@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { ActivityIndicator, FlatList, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import CenteredView from '../CenteredView';
+import CenteredView from '../shared/CenteredView';
 import Event from './Event';
 import styles from './styles';
 
