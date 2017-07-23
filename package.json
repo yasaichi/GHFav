@@ -30,7 +30,7 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
-    "@kadira/react-native-storybook": "^2.3.0",
+    "@storybook/react-native": "3.1.9",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-preset-react-native": "^2.1.0",
@@ -44,6 +44,7 @@
     "jest": "^20.0.4",
     "json-server": "^0.11.2",
     "npm-run-all": "^4.0.2",
+    "react-dom": "16.0.0-alpha.12",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "jest": {
