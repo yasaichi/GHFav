@@ -1,5 +1,5 @@
 // @flow
-import { CALL_API } from '@yasaichi/redux-api-middleware';
+import { RSAA } from 'redux-api-middleware';
 
 import * as schema from '../schema';
 
@@ -11,7 +11,7 @@ const GITHUB_API_ORIGIN = __DEV__ ? 'http://localhost:3000' : 'https://api.githu
 
 export function fetchReceivedEvents() {
   return {
-    [CALL_API]: {
+    [RSAA]: {
       endpoint: ({ currentUser: { login } }) => `${GITHUB_API_ORIGIN}/users/${login}/received_events`,
       method: 'GET',
       headers: {

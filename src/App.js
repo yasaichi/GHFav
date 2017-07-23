@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { addNavigationHelpers } from 'react-navigation';
-import { apiMiddlewareCreator } from '@yasaichi/redux-api-middleware';
+import { apiMiddleware } from 'redux-api-middleware';
 import { applyMiddleware, createStore } from 'redux';
 import { connect, Provider } from 'react-redux';
 import logger from 'redux-logger';
@@ -14,7 +14,7 @@ import rootReducer from './reducers';
 const store = createStore(
   rootReducer,
   applyMiddleware(
-    apiMiddlewareCreator(fetch),
+    apiMiddleware,
     normalizrMiddleware,
     __DEV__ ? logger : noopMiddleware,
   ),
