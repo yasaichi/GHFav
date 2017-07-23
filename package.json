@@ -31,9 +31,9 @@
   },
   "devDependencies": {
     "@kadira/react-native-storybook": "^2.3.0",
-    "babel-eslint": "^7.1.1",
-    "babel-jest": "18.0.0",
-    "babel-preset-react-native": "1.9.1",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-preset-react-native": "^2.1.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-flowtype": "^2.30.4",
@@ -41,8 +41,8 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "flow-bin": "^0.47.0",
-    "jest": "^19.0.2",
-    "json-server": "^0.9.6",
+    "jest": "^20.0.4",
+    "json-server": "^0.11.2",
     "npm-run-all": "^4.0.2",
     "react-test-renderer": "16.0.0-alpha.12"
   },
