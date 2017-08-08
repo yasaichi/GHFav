@@ -28,7 +28,7 @@ export default function Event(props: Props) {
         />
         <View style={styles.body}>
           <View style={styles.header}>
-            <Text style={styles.userName}>
+            <Text style={styles.username}>
               {props.actor.displayLogin}
             </Text>
             <Text style={styles.createdAt} >
@@ -36,7 +36,7 @@ export default function Event(props: Props) {
             </Text>
           </View>
           <View style={styles.main}>
-            <Text style={styles.repoName}>
+            <Text style={styles.repo}>
               {props.repo.name}
             </Text>
           </View>

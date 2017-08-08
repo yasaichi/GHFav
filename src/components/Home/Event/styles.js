@@ -33,11 +33,11 @@ export default StyleSheet.create({
   },
   main: {
   },
-  repoName: {
+  repo: {
     color: '#0366d6',
     fontSize: 16,
   },
-  userName: {
+  username: {
     color: '#24292e',
     fontSize: 15,
     fontWeight: '500',

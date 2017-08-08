@@ -3,7 +3,7 @@ import { StackNavigator } from 'react-navigation';
 
 import MainNavigator from './MainNavigator';
 import Repository from '../containers/Repository';
-import Welcome from '../components/Welcome';
+import Welcome from '../containers/Welcome';
 import styles from './styles';
 
 const routeConfigs = {
