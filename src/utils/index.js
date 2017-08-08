@@ -1,6 +1,7 @@
 // @flow
-import { showURLWithBrowserView } from './browserViewHelpers';
+import { hideBrowserView, showURLWithBrowserView } from './browserViewHelpers';
 
 export {
+  hideBrowserView,
   showURLWithBrowserView,
 };

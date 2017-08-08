@@ -2,6 +2,10 @@
 import SafariView from 'react-native-safari-view';
 import URI from 'urijs';
 
+export function hideBrowserView() {
+  SafariView.dismiss();
+}
+
 export function showURLWithBrowserView(url: string, params: any = {}) {
   const normalizedURL = new URI(url).addQuery(params).normalize().toString();
 

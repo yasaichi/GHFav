@@ -5,7 +5,7 @@ import { Linking, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import URI from 'urijs';
 
-import { showURLWithBrowserView } from '../../utils';
+import { hideBrowserView, showURLWithBrowserView } from '../../utils';
 import Button from '../shared/Button';
 import config from '../../config';
 import styles from './styles';
@@ -70,6 +70,8 @@ export default class Welcome extends Component {
   }
 
   _handleIncomingLinks = (event) => {
+    hideBrowserView();
+
     const url = new URI(event.url);
     const params = url.query(true);
 

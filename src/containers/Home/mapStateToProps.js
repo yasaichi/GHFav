@@ -9,7 +9,7 @@ const entitiesSchema = { events: [schema.event] };
 
 export default createSelector(
   (state) => state.currentUser.receivedEvents,
-  (state) => state.currentUser.login,
+  (state) => state.currentUser.credentials.username,
   (state) => state.entities,
   (state) => state.ui.home,
   (receivedEvents, username, entities, ui) => {

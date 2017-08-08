@@ -2,21 +2,23 @@
 import type { FluxStandardAction } from 'flux-standard-action';
 import union from 'lodash.union';
 
-import { FETCH_RECEIVED_EVENTS_SUCCESS } from '../constants/ActionTypes';
+import {
+  FETCH_RECEIVED_EVENTS_SUCCESS,
+  GET_CREDENTIALS_WITH_CODE_SUCCESS,
+} from '../constants/ActionTypes';
 
-type Payload = {
-  result?: Array<Number>,
-};
-
-type Action = FluxStandardAction<string, Payload, any>;
+type Action = FluxStandardAction<string, *, *>;
 
 type State = {
-  login: string,
+  credentials: {
+    accessToken: string,
+    username: string,
+  },
   receivedEvents: Array<Number>,
 };
 
 const initialState: State = {
-  login: 'yasaichi',
+  credentials: {},
   receivedEvents: [],
 };
 
@@ -32,6 +34,9 @@ export default function currentUser(state: State = initialState, action: Action)
       }
 
       return state;
+    }
+    case GET_CREDENTIALS_WITH_CODE_SUCCESS: {
+      return { ...state, credentials: action.payload };
     }
     default: {
       return state;

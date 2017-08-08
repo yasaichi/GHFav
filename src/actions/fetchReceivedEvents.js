@@ -13,8 +13,8 @@ const GITHUB_API_ORIGIN = __DEV__ ? 'http://localhost:3000' : 'https://api.githu
 export default function fetchReceivedEvents() {
   return {
     [RSAA]: {
-      endpoint: ({ currentUser: { login } }) => (
-        `${GITHUB_API_ORIGIN}/users/${login}/received_events`
+      endpoint: ({ currentUser: { credentials: { username } } }) => (
+        `${GITHUB_API_ORIGIN}/users/${username}/received_events`
       ),
       method: 'GET',
       headers: {
