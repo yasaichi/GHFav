@@ -3,8 +3,11 @@ import React, { Component } from 'react';
 
 import { Linking, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import URI from 'urijs';
 
+import { showURLWithBrowserView } from '../../utils';
 import Button from '../shared/Button';
+import config from '../../config';
 import styles from './styles';
 
 type Props = {
@@ -14,6 +17,7 @@ type Props = {
 };
 
 const SIGN_UP_URL = 'https://github.com/join';
+const SIGN_IN_URL = 'https://github.com/login/oauth/authorize';
 
 export default class Welcome extends Component {
   props: Props;
@@ -42,7 +46,10 @@ export default class Welcome extends Component {
         <View style={styles.main}>
           <Button
             color="#28a745"
-            onPress={() => navigate('Home')}
+            onPress={() => showURLWithBrowserView(
+              SIGN_IN_URL,
+              { client_id: config.GITHUB_CLIENT_ID },
+            )}
             title="Login with GitHub"
           />
         </View>

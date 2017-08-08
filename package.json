@@ -28,7 +28,8 @@
     "redux": "^3.7.2",
     "redux-api-middleware": "^2.0.0-beta.2",
     "redux-logger": "^3.0.6",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "urijs": "^1.18.10"
   },
   "devDependencies": {
     "@storybook/react-native": "3.1.9",
@@ -46,6 +47,7 @@
     "json-server": "^0.11.2",
     "npm-run-all": "^4.0.2",
     "react-dom": "16.0.0-alpha.12",
+    "react-native-dotenv": "^0.1.0",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "jest": {
