@@ -11,9 +11,7 @@ import config from '../../config';
 import styles from './styles';
 
 type Props = {
-  navigation: {
-    navigate: (string, any) => void
-  },
+  onAuthorizationRequestApproved: (code: string) => void,
 };
 
 const SIGN_UP_URL = 'https://github.com/join';
@@ -26,9 +24,15 @@ export default class Welcome extends Component {
     header: null,
   }
 
-  render() {
-    const { navigate } = this.props.navigation;
+  componentDidMount() {
+    Linking.addEventListener('url', this._handleIncomingLinks);
+  }
 
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this._handleIncomingLinks);
+  }
+
+  render() {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -63,5 +67,15 @@ export default class Welcome extends Component {
         </View>
       </View>
     );
+  }
+
+  _handleIncomingLinks = (event) => {
+    const url = new URI(event.url);
+    const params = url.query(true);
+
+    // TODO: Check whether `state` param is valid
+    if (url.host() === 'auth' && url.segment()[0] === 'github' && params.code) {
+      this.props.onAuthorizationRequestApproved(params.code);
+    }
   }
 }
