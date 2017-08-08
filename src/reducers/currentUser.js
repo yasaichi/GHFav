@@ -2,7 +2,7 @@
 import type { FluxStandardAction } from 'flux-standard-action';
 import union from 'lodash.union';
 
-import { FETCH_RECEIVED_EVENTS_SUCCESS } from '../actions';
+import { FETCH_RECEIVED_EVENTS_SUCCESS } from '../constants/ActionTypes';
 
 type Payload = {
   result?: Array<Number>,

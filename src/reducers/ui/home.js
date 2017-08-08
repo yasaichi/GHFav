@@ -5,7 +5,7 @@ import {
   FETCH_RECEIVED_EVENTS_REQUEST,
   FETCH_RECEIVED_EVENTS_SUCCESS,
   FETCH_RECEIVED_EVENTS_FAILURE,
-} from '../../actions';
+} from '../../constants/ActionTypes';
 
 type State = {
    isLoading: boolean,

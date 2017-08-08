@@ -1,7 +1,7 @@
 // @flow
 import type { FluxStandardAction } from 'flux-standard-action';
 
-import { FETCH_RECEIVED_EVENTS_SUCCESS } from '../../actions';
+import { FETCH_RECEIVED_EVENTS_SUCCESS } from '../../constants/ActionTypes';
 
 type Repositories = Object;
 type Payload = {
